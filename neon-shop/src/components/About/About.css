@@ -1,0 +1,46 @@
+.about_container{
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    flex-direction: column;
+    background-image: url(/src/images/AboutBg.png);
+    
+}
+.about_block_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    text-wrap: wrap;
+    padding: 2em;
+    font-size: 2em;
+    margin: 10%;
+    width: 80%;
+}
+.about_heading{
+    font-size: 1em;
+
+}
+.about_adress{
+    font-size: 1em;
+    margin-top: 50px;
+}
+.social_icons{
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 768px){
+    .about_block_text{
+        font-size: 40px;
+    }
+    .about_heading{
+        font-size: 0.5em;
+    }
+    .about_adress{
+        font-size: 0.5em;
+    }
+    .social_icons{
+        font-size: 0.5em;
+    }
+}

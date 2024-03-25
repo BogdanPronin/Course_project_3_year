@@ -1,0 +1,147 @@
+header {
+  padding: 20px 25px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #00000055;
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+}
+.user_profile{
+  text-decoration: none;
+  color: white;
+}
+
+.logo img {
+  width: 120px;
+
+  cursor: pointer;
+
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav_items ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;  
+}
+
+.nav_items ul li {
+  cursor: pointer;
+  color: white;
+
+  
+}
+.user_profile{
+  text-align: start;
+  padding-left: 2px;
+  
+}
+.nav_link {
+  text-decoration: none;
+  color: white;
+  padding-right: 20px;
+}
+
+.notifications {
+  cursor: pointer;
+  position: relative;
+  margin-right: 20px;
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: rgba(102, 255, 204, 0.721);
+  padding: 4px;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.badge small {
+  color: #fff;
+  font-size: 10px;
+}
+
+.header {
+  min-height: 100vh;
+}
+
+@media (max-width: 640px) {
+  .header {
+    min-height: 60vh;
+    padding-bottom: 0px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav_items ul {
+    
+    backdrop-filter: blur(8px);
+  }
+  .nav_search input {
+    width: 150px;
+  }
+}
+
+
+/* Стили для кнопки гамбургера */
+.navbar-toggle {
+  display: none; /* По умолчанию скрываем кнопку */
+  cursor: pointer;
+  font-size: 28px;
+  color: white;
+}
+
+/* Стили для меню, когда оно открыто на мобильных устройствах */
+.nav-items.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav_items ul {
+    display: none; /* Скрываем основное меню на мобильных */
+    flex-direction: column; /* Вертикальное выравнивание элементов */
+    width: auto;
+    position: absolute;
+    top: 92px;
+    left: 0;
+    right: 0;
+    background-color: #00000095;
+    backdrop-filter: blur(8px);
+  }
+  .nav_items ul li{
+    padding-top: 10px;
+    
+  }
+  .user_profile{
+    padding-right: 20px;
+  }
+  .nav_items.active ul {
+    display: flex; /* Отображаем меню, когда оно активно */
+    
+  }
+
+  .navbar-toggle {
+
+    display: block; /* Показываем кнопку гамбургера на мобильных */
+    
+    background-color: #00000055;
+    backdrop-filter: blur(8px);
+  }
+}

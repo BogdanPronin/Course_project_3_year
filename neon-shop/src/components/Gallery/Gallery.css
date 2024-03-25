@@ -1,0 +1,111 @@
+.gallery_row_outer{
+    background: white;
+    padding-top: 90px;
+    padding-bottom: 40px;
+}
+.gallery_heading {
+    text-align: center;
+
+}
+.gallery_text {
+    display: flex;
+    text-align: center;
+    padding-bottom: 20px ;
+    text-wrap: wrap;
+}
+.gallery_text p {
+    margin: 0 auto;
+    width: 80%;
+    font-size: 1.2rem;
+    padding-bottom: 90px;
+}
+
+.gallery_container {
+    width: 95%;
+    max-width: 1160px;
+    margin: auto;
+}
+.gallery_heading {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.gallery_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 'item1 item1 item2 item3'
+                         'item1 item1 item4 item5';
+    grid-gap: 10px;
+    padding-bottom: 20px;
+}
+
+.gallery_item {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: 18rem;
+    cursor: pointer;
+    background: red;
+}
+
+.gallery_item1 {
+    grid-area: item1;
+    background: #4b00ff url(/src/images/gallery/item1.JPG);
+    background-position: top !important; 
+}
+.gallery_item2 {
+    grid-area: item2;
+    background: #4b00ff url(/src/images/gallery/item2.JPG); 
+}
+.gallery_item3 {
+    grid-area: item3;
+    background: #4b00ff url(/src/images/gallery/item3.JPG); 
+}
+.gallery_item4 {
+    grid-area: item4;
+    background: #4b00ff url(/src/images/gallery/item4.JPG); 
+}
+.gallery_item5 {
+    grid-area: item5;
+    background: #4b00ff url(/src/images/gallery/item5.JPG);
+}
+
+
+
+@media (max-width: 768px) {
+    .gallery_grid { 
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "item1 item1 item2"
+                             "item1 item1 item3"
+                             "item5 item4 item4"
+                             "item5 item4 item4";
+    }
+}
+
+@media (max-width: 620px) {
+    .gallery_grid { 
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "item5 item3"
+                             "item1 item4"
+                             "item2 item2"
+                             "item2 item2" ;
+    }
+    
+}
+
+
+@media (max-width: 360px) {
+    .gallery_grid { 
+        grid-template-columns: 1fr;
+        grid-template-areas: "item1"
+                             "item2"
+                             "item3" 
+                             "item4"
+                             "item5";
+    }
+    .gallery_item2 {
+        background-position: top;
+    }
+}
+

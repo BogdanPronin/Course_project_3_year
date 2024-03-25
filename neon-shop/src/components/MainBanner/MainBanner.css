@@ -1,0 +1,65 @@
+.neon-chameleon-container {
+
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
+}
+.neon-logo {
+
+  width: 60%;
+  height: auto;
+  align-self: center;
+}
+
+.order-button {
+  position: relative;
+  padding: 20px 48px;
+  border-radius: 6px;
+  text-align: center;
+  border-radius: 20px;
+  outline: none;
+  border: 0px;
+  background: #66ffcc;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+  color: black;
+}
+
+.order-button:hover {
+  background-color: #075057;
+    color: white;
+}
+.neon-title {
+  padding: 1em;
+  font-size: 20px;
+  width: 60%;
+  color: white;
+  margin-top: 20px;
+}
+
+
+@media screen and (max-width: 768px){
+  .neon-logo {
+    width: 80%;
+  }
+  .neon-title {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 480px){
+  .neon-logo {
+    width: 90%;
+  }
+  .neon-title {
+    width: 90%;
+  }
+  
+}

@@ -1,0 +1,68 @@
+.highlights {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 100px;
+}
+
+.highlights_right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.highlights_right h2 {
+  font-size: 30px;
+  font-weight: 700px;
+  color: rgba(153, 94, 231, 0.721);
+  margin-bottom: 20px;
+}
+.highlights_right h1 {
+  font-size: 36px;
+  font-weight: 700px;
+  color: black;
+  margin-bottom: 30px;
+}
+.highlights_right p {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.highlights_right a {
+  text-decoration: none;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 15px 25px;
+  max-width: 150px;
+  background: rgba(153, 94, 231, 0.721);
+  color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.highlights_right a:hover {
+  background-color: rgb(53, 53, 53);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transition: 0.8s ease-out;
+}
+
+@media (max-width: 980px) {
+  .highlights {
+    display: flex;
+    flex-direction: column;
+  }
+  .highlights_left {
+    display: flex;
+    justify-content: center;
+  }
+  .highlights_right {
+    margin-top: 25px;
+  }
+  .highlights_left .model_view model-viewer {
+    width: 20em !important;
+    height: 20em !important;
+  }
+}

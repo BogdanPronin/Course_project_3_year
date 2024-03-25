@@ -1,0 +1,39 @@
+{
+  "models": [
+    {
+      "id": "1",
+      "name": "GIRLS GIRLS GIRLS",
+      "glbFile": "/assets/signs/glb/girls.glb",
+      "price": "3990",
+      "iosSrc": "/assets/signs/ios/girls.usdz"
+    },
+    {
+      "id": "2",
+      "name": "ГОРЫ",
+      "glbFile": "/assets/signs/glb/mountains.glb",
+      "price": "2990",
+      "iosSrc": "/assets/signs/ios/mountains.usdz"
+    },
+    {
+      "id": "3",
+      "name": "ПРИЗРАК PACMAN",
+      "glbFile": "/assets/signs/glb/pacman.glb",
+      "price": "1490",
+      "iosSrc": "/assets/signs/ios/pacman.usdz"
+    },
+    {
+      "id": "4",
+      "name": "СИЯЙ",
+      "glbFile": "/assets/signs/glb/siyay.glb",
+      "price": "2290",
+      "iosSrc": "/assets/signs/ios/siyay.usdz"
+    },
+    {
+      "id": "5",
+      "name": "ТАКАШИ МУРАКАМИ",
+      "glbFile": "/assets/signs/glb/takashi.glb",
+      "price": "6990",
+      "iosSrc": "/assets/signs/ios/takashi.usdz"
+    }
+  ]
+}
