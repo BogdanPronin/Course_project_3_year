@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
-const { submitForm } = require('../controllers/submitFormController');
+const formController = require('../controllers/submitFormController');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
+const router = express.Router();
 
-router.post('/submit-form', upload.single('file'), submitForm);
+router.post('/submit-form', upload.single('file'), formController.submitForm);
 
 module.exports = router;

@@ -1,24 +1,25 @@
-const pool = require('../db/index');
+const orderService = require('../services/orderService');
 
-const createOrder = async (req, res) => {
+exports.createOrder = async (req, res) => {
     try {
-      const { items, totalPrice } = req.body;
-      const userId = req.user.id;
+        const userId = req.user ? req.user.userId : null;
+        const { items, totalPrice } = req.body;
 
-      // Пример запроса для создания заказа
-      console.log([userId, JSON.stringify(items), totalPrice]);
-      const result = await pool.query(
-        'INSERT INTO orders (user_id, items, total_price) VALUES ($1, $2, $3) RETURNING *',
-        [userId, JSON.stringify(items), totalPrice]
-      );
-  
-      res.status(201).json({ message: 'Заказ успешно создан', order: result.rows[0] });
+        if (!userId) {
+            console.log('User ID is missing'); 
+            return res.status(400).json({ message: 'User ID is missing' });
+        }
+
+        const orderData = {
+            userId,
+            items,
+            totalPrice
+        };
+
+        const result = await orderService.createOrder(orderData);
+        res.status(201).json(result);
     } catch (error) {
-      console.error('Ошибка при создании заказа:', error);
-      res.status(500).send('Ошибка сервера при создании заказа');
+        console.error('Error creating order:', error); 
+        res.status(500).json({ error: error.message });
     }
-  };
-  
-  module.exports = {
-    createOrder,
-  };
+};
