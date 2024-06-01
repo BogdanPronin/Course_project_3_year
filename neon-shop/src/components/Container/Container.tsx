@@ -32,7 +32,7 @@ const Container = () => {
   const sortedItems = sortItems(sortOption);
 
   return (
-    <div className="container_wrapper">
+    <div className="container_wrapper" id="3d_container">
       <div className="container_header">
         <h1>3D-Каталог</h1>
         <div className="sort">

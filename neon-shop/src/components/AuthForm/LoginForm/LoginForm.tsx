@@ -21,7 +21,7 @@ function LoginForm() {
     e.preventDefault();
     setError('');
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch('https://localhost:3001/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -52,7 +52,7 @@ function LoginForm() {
         <div className='text_area'>
           <input type="password" name="password" placeholder="Пароль" value={formData.password} onChange={handleChange} required />
         </div>
-        {error && <div className="error_message">{error}</div>}
+        {error && <div className="error_form_message">{error}</div>}
         <button className="submit_button" type="submit">Авторизоваться</button>
       </form>
       <Link to="/register" className="link">Зарегистрироваться</Link>

@@ -21,33 +21,34 @@ const RegisterForm = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    setErrorMessage(''); // Очищаем ошибки перед отправкой формы
+    setErrorMessage('');
+    setSuccessMessage('');
     try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+        const response = await fetch('https://localhost:3001/api/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
 
-      const data = await response.json();
+        const data = await response.json();
+        console.log(data);
+        if (!response.ok) {
+            throw new Error(data.message || 'Registration failed');
+        }
 
-      if (!response.ok) {
-        throw new Error(data.message || 'Registration failed');
-      }
-
-      setSuccessMessage('Registration successful!'); // Устанавливаем сообщение об успехе
-      console.log(data)
-      // Очищаем форму или перенаправляем пользователя на другую страницу
+        setSuccessMessage('Registration successful!');
     } catch (error: unknown) {
-      if (error instanceof Error) {
-        setErrorMessage(error.message);
-      } else {
-        setErrorMessage('An unexpected error occurred');
-      }
+        console.error(error);
+        if (error instanceof Error) {
+            setErrorMessage(error.message);
+        } else {
+            setErrorMessage('An unexpected error occurred');
+        }
     }
-  };
+};
+
 
   return (
     <div className='login'>

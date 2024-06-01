@@ -1,33 +1,35 @@
-require('dotenv').config();
+const fs = require('fs');
+const https = require('https');
 const express = require('express');
 const cors = require('cors');
-const bcrypt = require('bcryptjs');
-const { Pool } = require('pg');
-const authRoutes = require('./routes/authRoutes'); // Убедитесь, что путь к файлу правильный
-const formRoutes = require('./routes/formRoutes'); // Убедитесь, что путь к файлу правильный
-const orderRoutes = require('./routes/orderRoutes'); // Убедитесь, что путь к файлу правильный
+const path = require('path');
+const sequelize = require('./config/database');
+const authRoutes = require('./routes/authRoutes');
+const formRoutes = require('./routes/formRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+
 const app = express();
-const port = process.env.PORT || 3001; // Измените порт на 5000
-app.listen(port, () => console.log(`Server running on port ${port}`));
+const port = process.env.PORT || 3001;
 
-// Настройка пула подключений к PostgreSQL
-const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-});
-
-// Использование CORS
 app.use(cors());
-
 app.use(express.json());
 
-// Подключение маршрутов аутентификации
 app.use('/api/auth', authRoutes);
-
-
 app.use('/api', formRoutes);
-
 app.use('/api/orders', orderRoutes);
+
+// Serve static files from the React app
+app.use(express.static(path.join("src", 'client/build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join("src", 'client/build', 'index.html'));
+});
+
+sequelize.sync().then(() => {
+    https.createServer({
+        key: fs.readFileSync('../../localhost-key.pem'),
+        cert: fs.readFileSync('../../localhost.pem')
+    }, app).listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+}).catch(err => console.log(err));

@@ -1,6 +1,5 @@
 import React from 'react';
 import './MainBanner.css'; 
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 import logo from '../../images/logo.png'; 
 
